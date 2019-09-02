@@ -53,7 +53,7 @@ class EntityImporter {
 		$this->logger = $logger;
 
 		$this->idParser = new BasicEntityIdParser();
-		$this->importUser = User::newFromId( 0 );
+		$this->importUser = User::newFromSession();
 		$this->batchSize = 10;
 	}
 
@@ -155,7 +155,7 @@ class EntityImporter {
 				continue;
 			}
 
-			foreach( $entity->getSiteLinks() as $siteLink ) {
+			foreach( $entity->getSiteLinkList() as $siteLink ) {
 				foreach( $siteLink->getBadges() as $badge ) {
 					$badgeItems[] = $badge->getSerialization();
 				}
