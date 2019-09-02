@@ -48,7 +48,7 @@ class StatementsImporter {
 		$statements = $entity->getStatements();
 
 		$this->logger->info( 'Adding statements: ' . $entity->getId()->getSerialization() );
-
+        $this->logger.info($statements->isEmpty());
 		if ( !$statements->isEmpty() ) {
 			$entityId = $entity->getId();
 
