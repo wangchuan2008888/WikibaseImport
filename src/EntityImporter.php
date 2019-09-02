@@ -70,8 +70,11 @@ class EntityImporter {
 			} else {
 				$this->logger->error( 'Failed to retrieve items for batch' );
 			}
-
-			$stashedEntities = array_merge( $stashedEntities, $this->importBatch( $batch ) );
+            if ($importStatements){
+			$stashedEntities = array_merge( $stashedEntities, $this->importBatch( $batch ) );}
+            else{
+                $this->importBatch($batch);
+            }
 		}
 
 		if ( $importStatements === true ) {
